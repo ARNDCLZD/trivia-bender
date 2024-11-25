@@ -7,6 +7,8 @@ import com.adaptionsoft.games.uglytrivia.Game;
 
 public class GameRunner {
 
+	private static long seed = 1992;
+
 	private static boolean notAWinner;
 
 	public static void main(String[] args) {
@@ -16,7 +18,7 @@ public class GameRunner {
 		aGame.add("Pat");
 		aGame.add("Sue");
 		
-		Random rand = new Random();
+		Random rand = new Random(seed);
 	
 		do {
 			

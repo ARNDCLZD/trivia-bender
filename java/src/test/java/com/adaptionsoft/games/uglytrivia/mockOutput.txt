@@ -1,0 +1,127 @@
+Marco was added
+They are player number 1
+Soma was added
+They are player number 2
+Marco is the current player
+They have rolled a 4
+Marco's new location is 4
+The category is Pop
+Pop Question 0
+Answer was corrent!!!!
+Marco now has 1 Gold Coins.
+Soma is the current player
+They have rolled a 5
+Soma's new location is 5
+The category is Science
+Science Question 0
+Answer was corrent!!!!
+Soma now has 1 Gold Coins.
+Marco is the current player
+They have rolled a 2
+Marco's new location is 6
+The category is Sports
+Sports Question 0
+Question was incorrectly answered
+Marco was sent to the penalty box
+Soma is the current player
+They have rolled a 1
+Soma's new location is 6
+The category is Sports
+Sports Question 1
+Question was incorrectly answered
+Soma was sent to the penalty box
+Marco is the current player
+They have rolled a 4
+Marco is not getting out of the penalty box
+Soma is the current player
+They have rolled a 5
+Soma is getting out of the penalty box
+Soma's new location is 11
+The category is Rock
+Rock Question 0
+Answer was correct!!!!
+Soma now has 2 Gold Coins.
+Marco is the current player
+They have rolled a 3
+Marco is getting out of the penalty box
+Marco's new location is 9
+The category is Science
+Science Question 1
+Question was incorrectly answered
+Marco was sent to the penalty box
+Soma is the current player
+They have rolled a 3
+Soma is getting out of the penalty box
+Soma's new location is 2
+The category is Sports
+Sports Question 2
+Answer was correct!!!!
+Soma now has 3 Gold Coins.
+Marco is the current player
+They have rolled a 3
+Marco is getting out of the penalty box
+Marco's new location is 0
+The category is Pop
+Pop Question 1
+Answer was correct!!!!
+Marco now has 2 Gold Coins.
+Soma is the current player
+They have rolled a 4
+Soma is not getting out of the penalty box
+Marco is the current player
+They have rolled a 4
+Marco is not getting out of the penalty box
+Soma is the current player
+They have rolled a 5
+Soma is getting out of the penalty box
+Soma's new location is 7
+The category is Rock
+Rock Question 1
+Answer was correct!!!!
+Soma now has 4 Gold Coins.
+Marco is the current player
+They have rolled a 3
+Marco is getting out of the penalty box
+Marco's new location is 3
+The category is Rock
+Rock Question 2
+Answer was correct!!!!
+Marco now has 3 Gold Coins.
+Soma is the current player
+They have rolled a 1
+Soma is getting out of the penalty box
+Soma's new location is 8
+The category is Pop
+Pop Question 2
+Answer was correct!!!!
+Soma now has 5 Gold Coins.
+Marco is the current player
+They have rolled a 3
+Marco is getting out of the penalty box
+Marco's new location is 6
+The category is Sports
+Sports Question 3
+Answer was correct!!!!
+Marco now has 4 Gold Coins.
+Soma is the current player
+They have rolled a 4
+Soma is not getting out of the penalty box
+Marco is the current player
+They have rolled a 1
+Marco is getting out of the penalty box
+Marco's new location is 7
+The category is Rock
+Rock Question 3
+Answer was correct!!!!
+Marco now has 5 Gold Coins.
+Soma is the current player
+They have rolled a 4
+Soma is not getting out of the penalty box
+Marco is the current player
+They have rolled a 5
+Marco is getting out of the penalty box
+Marco's new location is 0
+The category is Pop
+Pop Question 3
+Answer was correct!!!!
+Marco now has 6 Gold Coins.
