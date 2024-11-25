@@ -1,103 +1,40 @@
 package com.adaptionsoft.games.uglytrivia;
 
+import com.adaptionsoft.games.trivia.runner.GameRunner;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintStream;
 import java.lang.reflect.Field;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.List;
 import java.util.stream.IntStream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class GameTest {
 
-    private Game game;
-
-    @BeforeEach
-    void setUp() {
-        game = new Game();
-    }
-
-    // Méthodes utilitaires pour accéder aux champs privés via réflexion
-    private int[] getPrivatePlaces(Game game) throws NoSuchFieldException, IllegalAccessException {
-        Field placesField = Game.class.getDeclaredField("places");
-        placesField.setAccessible(true);
-        return (int[]) placesField.get(game);
-    }
-
-    private int getPlayerPlace(Game game, int playerIndex) throws NoSuchFieldException, IllegalAccessException {
-        return getPrivatePlaces(game)[playerIndex];
-    }
-
-    private boolean[] getPrivatePenaltyBox(Game game) throws NoSuchFieldException, IllegalAccessException {
-        Field penaltyBoxField = Game.class.getDeclaredField("inPenaltyBox");
-        penaltyBoxField.setAccessible(true);
-        return (boolean[]) penaltyBoxField.get(game);
-    }
-
-    private boolean isPlayerInPenaltyBox(Game game, int playerIndex) throws NoSuchFieldException, IllegalAccessException {
-        return getPrivatePenaltyBox(game)[playerIndex];
-    }
-
-    // Tests
     @Test
-    void testAddPlayer() {
-        assertTrue(game.add("Player1"));
-        assertTrue(game.add("Player2"));
-        assertEquals(2, game.howManyPlayers());
-    }
+    void test_game_output() throws Exception {
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        PrintStream originalOut = System.out;
+        System.setOut(new PrintStream(outputStream));
+        GameRunner.main(null);
 
-    @Test
-    void testIsPlayable() {
-        game.add("Player1");
-        assertFalse(game.isPlayable()); // Pas assez de joueurs
+        System.out.flush();
+        String actualOutput = outputStream.toString();
 
-        game.add("Player2");
-        assertTrue(game.isPlayable()); // Suffisamment de joueurs
-    }
+        String absolutePath = System.getProperty("user.dir");
+        File file = new File(absolutePath + "/src/test/resources/mockOutput.txt");
+        List<String> expectedLines = Files.readAllLines(file.toPath());
+        String expectedOutput = String.join(System.lineSeparator(), expectedLines);
 
-    @Test
-    void testRoll() throws NoSuchFieldException, IllegalAccessException {
-        game.add("Player1");
-        game.add("Player2");
+        assertEquals(expectedOutput.trim(), actualOutput.trim());
+        System.setOut(originalOut);
 
-        game.roll(3);
-        assertEquals(3, getPlayerPlace(game, 0));
-    }
-
-    @Test
-    void testRollWrapAround() throws NoSuchFieldException, IllegalAccessException {
-        game.add("Player1");
-        game.add("Player2");
-
-        game.roll(12); // Déplacement dépasse la limite
-        assertEquals(0, getPlayerPlace(game, 0)); // Vérifie que la position revient à 0
-    }
-
-    @Test
-    void testWasCorrectlyAnswered() {
-        game.add("Player1");
-        game.add("Player2");
-
-        boolean result = game.wasCorrectlyAnswered();
-        assertTrue(result);
-    }
-
-    @Test
-    void testWrongAnswer() throws NoSuchFieldException, IllegalAccessException {
-        game.add("Player1");
-        game.add("Player2");
-
-        boolean result = game.wrongAnswer();
-        assertTrue(result);
-        assertTrue(isPlayerInPenaltyBox(game, 0)); // Vérifie que le joueur 0 est dans la boîte de pénalité
-    }
-
-
-
-    @Test
-    void testWinCondition() {
-        game.add("Player1");
-        IntStream.range(0, 6).forEach(i -> game.wasCorrectlyAnswered());
-        assertFalse(game.wasCorrectlyAnswered()); // Le joueur a gagné après avoir accumulé 6 pièces
     }
 }

@@ -48,10 +48,10 @@ class SomeTest {
     @Test
     void testIsPlayable() {
         game.add("Player1");
-        assertFalse(game.isPlayable()); // Pas assez de joueurs
+        assertFalse(game.isPlayable());
 
         game.add("Player2");
-        assertTrue(game.isPlayable()); // Suffisamment de joueurs
+        assertTrue(game.isPlayable());
     }
 
     @Test
@@ -88,13 +88,13 @@ class SomeTest {
 
         boolean result = game.wrongAnswer();
         assertTrue(result);
-        assertTrue(isPlayerInPenaltyBox(game, 0)); // Vérifie que le joueur 0 est dans la boîte de pénalité
+        assertTrue(isPlayerInPenaltyBox(game, 0));
     }
 
     @Test
     void testWinCondition() {
         game.add("Player1");
         IntStream.range(0, 6).forEach(i -> game.wasCorrectlyAnswered());
-        assertFalse(game.wasCorrectlyAnswered()); // Le joueur a gagné après avoir accumulé 6 pièces
+        assertFalse(game.wasCorrectlyAnswered());
     }
 }
